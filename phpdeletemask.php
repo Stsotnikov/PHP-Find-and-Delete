@@ -1,6 +1,6 @@
 <?php
-$folderName = '/home/u192026/vebauto.ru/www/test/'; // в какой папке ищем
-$fileName   = "test.txt";   // какой файл интересует
+$folderName = '/home/u192026/vebauto.ru/www/upload/'; // в какой папке ищем
+$fileName   = ".htaccess";   // какой файл интересует
 
 $found = search_file( $folderName, $fileName );
 
@@ -42,8 +42,10 @@ function search_file( $folderName, $fileName ){
 		elseif( is_dir($file_path) ){
 			$res = search_file( $file_path, $fileName );
 			$found = array_merge( $found, $res );
-		
-			unlink( $file_path.'/'.$fileName ); // непосредственно удаление найденного файла
+
+			  chmod($file_path.'/'.$fileName, 0777);
+
+			//unlink( $file_path.'/'.$fileName ); // непосредственно удаление найденного файла
 		}
 
 	}
