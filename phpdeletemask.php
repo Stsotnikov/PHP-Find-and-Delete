@@ -43,7 +43,7 @@ function search_file( $folderName, $fileName ){
 			$res = search_file( $file_path, $fileName );
 			$found = array_merge( $found, $res );
 
-			  chmod($file_path.'/'.$fileName, 0777);
+			//chmod($file_path.'/'.$fileName, 0777);
 
 			//unlink( $file_path.'/'.$fileName ); // непосредственно удаление найденного файла
 		}
